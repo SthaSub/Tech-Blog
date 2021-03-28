@@ -43,7 +43,7 @@ router.get('/:id', withAuth, async (req, res) => {
         const postPlain = post.get({ plain: true });
         const commentsPlain = comments.map(comment=>comment.get({plain:true}));
         //res.json({postPlain,commentsPlain});
-         res.status(200).render('feedback', { postPlain, commentsPlain });
+         res.status(200).render('comment', { postPlain, commentsPlain });
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
