@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-6">
+    <h4 id="welcome">✨ Welcome to My Tech Blog. Please signup or signIn for blogging 🗩 </h4>
+    {{#each posts as |post|}}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          <div class="author-name">by {{post.user.name}}</div>{{post.title}}<div id="post-date">{{format_date
+            post.createdAt}}</div>
+        </h5>
+
+        <p class="card-text">{{post.description}}</p>
+        <a href="/api/comments/{{post.id}}" class="card-link">Comment 💬</a>
+
+        {{!-- {{#if post.author}}
+        <a href="/api/posts/edit/{{post.id}}" class="card-link">Edit</a>
+        <form class="delete-form">
+          <div class="form-group">
+            <button type="submit" class="btn btn-danger" name="postId" value="{{post.id}}">
+              Delete
+            </button>
+          </div>
+        </form>
+        {{/if}} --}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="col-md-6">
+    <h2>Sign In</h2>
+
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Sign In</button>
+        <button class="btn btn-primary"><a href="/api/users/registration">Sign Up</a></button>
+      </div>
+    </form>
+    {{#unless signIn}}
+    <h1 id="valid">{{valid}}</h1>
+    {{/unless}}
+  </div>
+</div>
+<script src="/js/login.js"></script>
