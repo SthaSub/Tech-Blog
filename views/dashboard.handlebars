@@ -1,0 +1,53 @@
+<div></div>
+<div class="row">
+  <div class="col-6">
+    {{#each posts as |post|}}
+    <div class="card">
+      <div class="card-body">
+        {{#if post.author}}
+                <h5 class="card-title"><div class="author-name">by {{post.user.name}}</div>{{post.title}}📌<div id="post-date">{{format_date post.createdAt}}</div></h5>
+                {{!-- <h6 class="card-subtitle mb-2 text-muted">by {{post.user.name}}</h6> --}}
+        {{else}}
+                <h5 class="card-title"><div class="author-name">by {{post.user.name}}</div>{{post.title}}<div id="post-date">{{format_date post.createdAt}}</div></h5>
+                {{!-- <h5 class="card-title">{{post.title}}<div id="post-date">{{format_date post.createdAt}}</div></h5>
+                <h6 class="card-subtitle mb-2 text-muted">by {{post.user.name}}</h6> --}}
+        {{/if}}
+        <p class="card-text">{{post.description}}</p>
+        <a href="/api/comments/{{post.id}}" class="card-link" >Comment 💬</a>
+        {{#if post.author}}
+        <a href="/api/posts/edit/{{post.id}}" class="card-link">Edit</a>
+        <form class="delete-form">
+          <div class="form-group">
+          <button type="submit" class="btn btn-danger" name="postId" value="{{post.id}}">
+            Delete
+          </button>
+        </div>
+        </form>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        Create a Blog 
+        <form class="post-form">
+          <div class="form-group">
+            <input class="form-control" id="postTitle" placeholder="blog title 🖋️"></input>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="postText" rows="8" placeholder="Write your blog 🖋️"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-light">
+              Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/post.js"></script>
