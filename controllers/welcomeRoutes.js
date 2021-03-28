@@ -5,20 +5,24 @@ const withauth = require('../utils/auth');
 //     res.render('welcome');
 // });
 router.get('/', async (req, res) => {
-    if (req.session.signIn) {
-        res.redirect('/dashboard');
-        return;
-      }
-    const postData = await Post.findAll({
-        include: [{
-            model: User,
-            attributes: ['name']
-        }]
-    });
-    const posts = postData.map((post) => post.get({ plain: true }));
-    
-    // res.json(posts);
-     res.render('welcome',{posts, signIn:req.session.signIn, valid:req.query.valid});
+    try {
+        if (req.session.signIn) {
+            res.redirect('/dashboard');
+            return;
+          }
+        const postData = await Post.findAll({
+            include: [{
+                model: User,
+                attributes: ['name']
+            }]
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+        
+        // res.json(posts);
+         res.render('welcome',{posts, signIn:req.session.signIn, valid:req.query.valid});
+    } catch (error) {
+        res.status(400).json(error);
+    }
 });
 
 router.post('/login', async (req, res) => {
