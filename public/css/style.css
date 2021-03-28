@@ -1,0 +1,94 @@
+header, .project:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: none;
+}
+#postText, #commentText, #editTextArea, #postTitle, .card, #page-head, #valid,#welcome{ 
+font-family: 'Lato', sans-serif;
+}
+
+#valid{
+  font-size: x-large;
+}
+
+#postText, #commentText, #editTextArea{
+  width: 100%;
+  resize: vertical;
+}
+
+/* .row.col{
+  margin-left: px;
+} */
+
+.card-title{
+  
+  display: flex;
+  justify-content: space-between;
+  /* font-weight: 600; */
+}
+
+.card,.card-link{
+  color: white;
+  background-color:rgba(21, 114, 102, 0.6);
+  border-radius: 5px;
+}
+
+.card-link:hover{
+  color: yellow ;
+  text-decoration: none;
+}
+
+#postTitle, #postText{
+  border-radius: 5px;
+}
+
+#post-date{
+  font-size: 16px;
+}
+
+header{
+  background-color: rgba(21, 114, 102, 0.6);
+}
+
+#page-head{
+  text-decoration:none;
+  color: white;
+}
+
+#logout{
+  text-decoration: none; 
+  color: black;
+}
+
+#uname{
+  background-color: rgba(21, 114, 102, 0.6);
+  color: white;
+}
+.navbar-brand{
+  border-radius: 3px;
+  /* background-color: white; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-text{
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+}
+.author-name{
+  font-size: medium;
+}
