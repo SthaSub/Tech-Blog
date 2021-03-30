@@ -34,21 +34,27 @@ const loginFormHandler = async (event) => {
   // Collect values from the login form
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
+
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/users/login', {
+    await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
-    }
+    }).then(response => {
+      if (response.ok) {
+        console.log("2000");
+        // If successful, redirect the browser to the profile page
+        
+        // document.location.replace('/dashboard');
+        window.location = '/dashboard';
+      } else {
+        alert(response.statusText);
+      }
+      // window.location.href = "/dashboard";
+    })
   }
+
 };
 
 

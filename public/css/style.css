@@ -40,6 +40,16 @@ font-family: 'Lato', sans-serif;
   /* font-weight: 600; */
 }
 
+#signup{
+  background-color: white;
+  color: black;
+}
+
+#signup:hover{
+  text-decoration: none;
+  background-color: greenyellow;
+}
+
 .card,.card-link{
   color: white;
   background-color:rgba(21, 114, 102, 0.6);
