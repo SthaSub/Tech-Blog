@@ -53,7 +53,7 @@
   ![commment](./public/images/comment.PNG)
 
   ### edit page
-  ![edit](./public/images/comment.PNG)  
+  ![edit](./public/images/edit.PNG)  
 
   ## deployed
   [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://techblogging.herokuapp.com/)
